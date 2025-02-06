@@ -36,8 +36,8 @@
 proc checkRequiredFiles { origin_dir} {
   set status true
   set files [list \
- "[file normalize "$origin_dir/casb.srcs/constrs_1/new/top.xdc"]"\
- "[file normalize "$origin_dir/casb.srcs/utils_1/imports/synth_1/casb_wrapper.dcp"]"\
+ "[file normalize "$origin_dir/src/constrs_1/new/top.xdc"]"\
+ "[file normalize "$origin_dir/src/utils_1/imports/synth_1/casb_wrapper.dcp"]"\
   ]
   foreach ifile $files {
     if { ![file isfile $ifile] } {
@@ -47,10 +47,10 @@ proc checkRequiredFiles { origin_dir} {
   }
 
   set paths [list \
- "[file normalize "$origin_dir/[file normalize "$origin_dir/ip_repo/4reg_block_1_0"]"]"\
- "[file normalize "$origin_dir/[file normalize "$origin_dir/ip_repo/4reg_block_1_0"]"]"\
- "[file normalize "$origin_dir/[file normalize "$origin_dir/ip_repo/register_block_1_0"]"]"\
- "[file normalize "$origin_dir/[file normalize "$origin_dir/ip_repo/reg_block_1_0"]"]"\
+ "[file normalize "$origin_dir/[file normalize "$origin_dir/ip/4reg_block_1_0"]"]"\
+ "[file normalize "$origin_dir/[file normalize "$origin_dir/ip/4reg_block_1_0"]"]"\
+ "[file normalize "$origin_dir/[file normalize "$origin_dir/ip/register_block_1_0"]"]"\
+ "[file normalize "$origin_dir/[file normalize "$origin_dir/ip/reg_block_1_0"]"]"\
   ]
   foreach ipath $paths {
     if { ![file isdirectory $ipath] } {
@@ -78,7 +78,7 @@ if { [info exists ::user_project_name] } {
 }
 
 variable script_file
-set script_file "setup.tcl"
+set script_file "create_project.tcl"
 
 # Help information for this script
 proc print_help {} {
@@ -181,7 +181,7 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 # Set IP repository paths
 set obj [get_filesets sources_1]
 if { $obj != {} } {
-   set_property "ip_repo_paths" "[file normalize "$origin_dir/ip_repo/4reg_block_1_0"] [file normalize "$origin_dir/ip_repo/4reg_block_1_0"] [file normalize "$origin_dir/ip_repo/register_block_1_0"] [file normalize "$origin_dir/ip_repo/reg_block_1_0"]" $obj
+   set_property "ip_repo_paths" "[file normalize "$origin_dir/ip/4reg_block_1_0"] [file normalize "$origin_dir/ip/4reg_block_1_0"] [file normalize "$origin_dir/ip/register_block_1_0"] [file normalize "$origin_dir/ip/reg_block_1_0"]" $obj
 
    # Rebuild user ip_repo's index before adding any source files
    update_ip_catalog -rebuild
@@ -209,7 +209,7 @@ if {[string equal [get_filesets -quiet constrs_1] ""]} {
 set obj [get_filesets constrs_1]
 
 # Add/Import constrs file and set constrs file properties
-set file "[file normalize "$origin_dir/casb.srcs/constrs_1/new/top.xdc"]"
+set file "[file normalize "$origin_dir/src/constrs_1/new/top.xdc"]"
 set file_imported [import_files -fileset constrs_1 [list $file]]
 set file "new/top.xdc"
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
@@ -236,7 +236,7 @@ set_property -name "top_lib" -value "xil_defaultlib" -objects $obj
 set obj [get_filesets utils_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/casb.srcs/utils_1/imports/synth_1/casb_wrapper.dcp" ]\
+ [file normalize "${origin_dir}/src/utils_1/imports/synth_1/casb_wrapper.dcp" ]\
 ]
 set imported_files ""
 foreach f $files {
