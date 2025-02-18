@@ -20,6 +20,7 @@ petalinux-create -t project -n casb.linux --template zynq
 - Move the exported `.xsa ` and `.bit` files to `casb/casb_tester`
 - Grab the exported `.xsa` and `.bit` files
 ```bash
+petalinux_2023
 petalinux-config -p casb.linux/ --get-hw-description casb_tester/
 ```
 - In the graphical menu that pops up, confirm **Image Packaging Configuration - Root filesystem type - EXT4** has been properly selected from the configuration files (this ensures the image will boot from an ext4 partition on the SD card).
