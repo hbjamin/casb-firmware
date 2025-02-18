@@ -18,7 +18,6 @@ petalinux_2023
 petalinux-create -t project -n casb.linux --template zynq
 ```
 - From Adrian's project copy `/petalinux/configs/config` and `/petalinux/config/rootfs_config` to `casb.linux/project-spec/configs/`
-- Move the exported `.xsa ` and `.bit` files to `casb/casb_tester`
 - Grab the exported `.xsa` and `.bit` files
 ```bash
 petalinux-config -p casb.linux/ --get-hw-description casb_tester/
