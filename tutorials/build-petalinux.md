@@ -28,8 +28,8 @@ petalinux-config -p casb.linux/ -c rootfs
 ```
 - In the graphical menu that pops up, confirm that the choices in the `rootfs_config` file are reflected here (there are several filesystem ulitiies that will be marked for install based on the file).
 - Check that `project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi` is empty. If custom device drivers are desired, or if a property of an existing hardwaer device (e.g the SD card controller) needs to be modified, this file can be modified.
-- From Adrian's project copy `petalinux/recipes/regtest/` to `casb.linux/project-spec/meta-user/recipes-apps/` to add a simple user application to the build. This is donw by creating an app template as in the https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842475/PetaLinux+Yocto+Tips#PetaLinuxYoctoTips-CreatingApps(whichuseslibraries)inPetaLinuxProject. 
-- From Adrian's project copy `/petalinux/confix/user-rootfsconfig` to `project-spec/meta-user/conf/` to ensure that user application are included in the root file system.
+- From Adrian's project copy `petalinux/recipes/regtest/` to `casb.linux/project-spec/meta-user/recipes-apps/` to add a simple user application to the build. This is done by creating an app template as in the https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842475/PetaLinux+Yocto+Tips#PetaLinuxYoctoTips-CreatingApps(whichuseslibraries)inPetaLinuxProject. 
+- From Adrian's project copy `/petalinux/config/user-rootfsconfig` to `casb.linux/project-spec/meta-user/conf/` to ensure that user application are included in the root file system.
 - Build the project. This will take multiple hours the first time.
 ```bash
 petalinux-build -p casb.linux -c petalinux-image-full
