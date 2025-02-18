@@ -12,7 +12,7 @@ vivado
 - Save the follwing to `/casb-firmware/petalinux/casb_tester/`
   - `File` --> `Export` --> `Export Bitstream File` and name it `casb_tester.bit`
   - `File` --> `Export` --> `Export Hardware` --> `Include Bitstream` and name it `casb_tester.xsa`
-- From the `casb/` directory create the PetaLinux project
+- From the `/casb-firmware/petalinux/` directory create the PetaLinux project
 ```bash
 petalinux-create -t project -n casb.linux --template zynq
 ```
