@@ -14,13 +14,13 @@ vivado
   - `File` --> `Export` --> `Export Hardware` --> `Include Bitstream` and name it `casb_tester.xsa`
 - From the `/casb-firmware/petalinux/` directory create the PetaLinux project
 ```bash
+petalinux_2023
 petalinux-create -t project -n casb.linux --template zynq
 ```
 - From Adrian's project copy `/petalinux/configs/config` and `/petalinux/configs/rootfs_config` to `casb.linux/project-spec/configs/`
 - Move the exported `.xsa ` and `.bit` files to `casb/casb_tester`
 - Grab the exported `.xsa` and `.bit` files
 ```bash
-petalinux_2023
 petalinux-config -p casb.linux/ --get-hw-description casb_tester/
 ```
 - In the graphical menu that pops up, confirm **Image Packaging Configuration - Root filesystem type - EXT4** has been properly selected from the configuration files (this ensures the image will boot from an ext4 partition on the SD card).
