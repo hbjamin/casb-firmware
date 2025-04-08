@@ -1,7 +1,7 @@
 # How to boot the zturn with an SD card
 
-**Need to rebuild Petalinux with Vivado project where processory module is fully configured***
-** Use autocomplete with just processor and reset block**
+**Need to rebuild Petalinux with Vivado project where processory module is fully configured**
+**Use autocomplete with just processor and reset block**
 
 ### Creating partitions on the SD card
 - Use the partition editor `parted` to create two partitions on an SDHC micro-SD card
