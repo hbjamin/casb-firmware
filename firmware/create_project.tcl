@@ -15,7 +15,11 @@ if {![file exists $ip_repo_dirs]} {
     error "Missing IP repository: $ip_repo_dirs"
     return 1
 }
-# Check Vivado version 
+
+# Vivado version expected 
+set version_required "2023.2"
+
+# Check Vivado version installed
 set ver [lindex [split $::env(XILINX_VIVADO) /] end]
 if {![string equal $ver $version_required]} {
   puts "Vivado version mismatch. Expected $version_required, got $ver"
